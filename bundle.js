@@ -1,0 +1,1 @@
+console.error("Error: Can't walk dependency graph: Cannot find module '/home/samir/Programs/javascript/stancer-1.0/main.js' from '/home/samir/Programs/javascript/stancer-1.0/_fake.js'\n    required by /home/samir/Programs/javascript/stancer-1.0/_fake.js");
