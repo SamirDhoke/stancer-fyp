@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "js:watch": "watchify ./static/main.js -o ./static/bundle.js",
+    "js:train:watch": "watchify ./static/train.js -o ./static/train-bundle.js",
+    "js:main:watch": "watchify ./static/draft.js -o ./static/draft-bundle.js",
+    "js:video:watch": "watchify ./static/video.js -o ./static/video-bundle.js",
     "js:build": "browserify ./static/main.js -o ./static/bundle.js",
     "css:watch": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css -w",
     "css:build": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css",
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "keywords": [
     "p5",

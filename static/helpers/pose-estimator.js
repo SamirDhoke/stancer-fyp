@@ -24,8 +24,7 @@ class PoseEstimator {
 			
 			if (!inst.modelReady) {
 				reject(new Error('Model is not ready yet !'))
-			}
-			console.log('starting process on input...')
+			}			
 			inst.net.singlePose(input, resolve)	
 		})
 	}
@@ -36,7 +35,8 @@ class PoseEstimator {
 }
 
 const posenet = new PoseEstimator({
-	detectionType: 'single'
+	detectionType: 'single',
+	architecture: 'ResNet50'
 });
 
 instance = posenet;
