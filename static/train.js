@@ -1,15 +1,8 @@
 const posenet = require('./helpers/pose-estimator');
+const directories = require('./helpers/dataset_map');
+
 const height = 400, width = 400;
 const wrapper = document.getElementById('cnv-wrapper');
-
-const directories = {
-	squat_1: ["datasets\\squats\\squat1.jpg", "datasets\\squats\\squat2.jpg"],
-	squat_2: ["datasets\\squats\\squat2.jpg", "datasets\\squats\\squat4.jpg"],
-	jumpingjack_1: [],
-	jumpingjack_2: [],
-	lunge_1: [],
-	lunge_2: []
-}
 
 const labels = Object.keys(directories);
 
@@ -33,6 +26,8 @@ let label_index = 0;
 let image_index = 0;
 
 async function handleImageLoaded(img) {
+	img.resize(400, 400);
+
 	const poses = await posenet.getKeypoints(img);	
 	const inputs = getKeypointsAsArray(poses[0].pose);	
 	const output = {
@@ -78,11 +73,12 @@ window.draw = function draw() {
 		console.log('Training on', label);
 
 		if (image_index >= directories[label].length) {
+		// if (image_index >= 5) {
 			label_index = label_index + 1;
 			image_index = 0;
 			return;
 		}		
-		
+		// background(0);
 		loadImage(directories[label][image_index], handleImageLoaded);
 	}
 }

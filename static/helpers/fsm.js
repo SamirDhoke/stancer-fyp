@@ -1,16 +1,19 @@
 let instance = null;
 
 const machine = {
+	debug: false,
 	exercise: null,
 	stage: 0,
-	state: 'IDLE',
+	state: 'IDLE',	
 	transitions: {
 		IDLE: {
 			startExercise: function(exercise) {
 				if (exercise.stage !== 1) {
 					return;
 				}
-				console.log("STARTED NEW EXERCISE", exercise.label);
+				if (this.debug) {
+					console.log("STARTED NEW EXERCISE", exercise.label);
+				}				
 				this.setState('STARTED');
 				this.exercise = exercise.label;
 				this.stage = exercise.stage;
@@ -20,7 +23,9 @@ const machine = {
 			progressExercise: function(exercise) {
 				if (exercise.label === this.exercise) {
 					if (this.stage + 1 === exercise.stage) {
-						console.log("PROGRSSED", exercise.label, "EXERCISE");
+						if (this.debug) {
+							console.log("PROGRSSED", exercise.label, "EXERCISE");
+						}
 						this.setState('PROGRESSED');
 						this.stage = this.stage + 1;
 					}
@@ -32,7 +37,9 @@ const machine = {
 				if (exercise.stage !== 1) {
 					return;
 				}
-				console.log("STARTED NEW EXERCISE", exercise.label);
+				if (this.debug) {
+					console.log("STARTED NEW EXERCISE", exercise.label);
+				}
 				this.setState('STARTED');
 				this.exercise = exercise.label;
 				this.stage = exercise.stage;
@@ -42,7 +49,9 @@ const machine = {
 			progressExercise: function(exercise) {
 				if (exercise.label === this.exercise) {
 					if (exercise.stage === 1) {
-						console.log("COMPLETED", exercise.label, "EXERCISE");
+						if (this.debug) {
+							console.log("COMPLETED", exercise.label, "EXERCISE");
+						}
 						this.setState('IDLE');
 						this.stage = 0;
 						this.exercise = null;
@@ -55,7 +64,9 @@ const machine = {
 				if (exercise.stage !== 1) {
 					return;
 				}
-				console.log("STARTED NEW EXERCISE", exercise.label);
+				if (this.debug) {
+					console.log("STARTED NEW EXERCISE", exercise.label);
+				}
 				this.setState('STARTED');
 				this.exercise = exercise.label;
 				this.stage = exercise.stage;

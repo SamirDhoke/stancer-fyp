@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "js:train:watch": "watchify ./static/train.js -o ./static/train-bundle.js",
+    "js:trainmodel:watch": "watchify ./static/train-model.js -o ./static/train-model-bundle.js",
+    "js:collectideal:watch": "watchify ./static/collect-ideal.js -o ./static/collect-ideal-bundle.js",
     "js:main:watch": "watchify ./static/draft.js -o ./static/draft-bundle.js",
     "js:video:watch": "watchify ./static/video.js -o ./static/video-bundle.js",
     "js:build": "browserify ./static/main.js -o ./static/bundle.js",

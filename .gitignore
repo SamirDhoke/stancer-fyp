@@ -1,4 +1,8 @@
 /node_modules
 .env
-/static/datasets
+/static/datasets/ideal
+/static/datasets/extras
+/static/datasets/jacks
+/static/datasets/lunges
+/static/datasets/squats
 github_pat
