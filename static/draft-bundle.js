@@ -8,14 +8,14 @@ const height = 400, width = 400;
 const wrapper = document.getElementById('cnv-wrapper');
 const feedbackWrapper = document.getElementById('feedback-wrapper');
 
-const videoFileName = '/datasets/test/lunges.mp4';
+const videoFileName = '/datasets/test/lunges_squats.mp4';
 
 let video = null, isPlaying = false, isClassifierReady = false;;
 
 const modelInfo = {
-  model: 'datasets/model.json',
-  metadata: 'datasets/model_meta.json',
-  weights: 'datasets/model.weights.bin',
+  model: 'datasets/trained_model/model.json',
+  metadata: 'datasets/trained_model/model_meta.json',
+  weights: 'datasets/trained_model/model.weights.bin',
 };
 
 let prevState = '';
